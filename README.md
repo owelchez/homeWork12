@@ -2,6 +2,6 @@
 
 
 1. Main Menu
-     + ![Main Menu](screenshots/HW12.jpg.tiff)
+     + ![Main Menu](screenshots/HW12.tiff)
 
    

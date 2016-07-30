@@ -30,12 +30,10 @@ startApp();
 
 						/*Functions*/
 
-	function startApp(callback){
+	function startApp(){
 		console.log('\n\n\n			Welcome to Bamazon!\n' + 'The following table gives you up to date inventory quantities in stock.\n\n');
 
-			tableInventory(function(){
-				askUser();
-			});
+			tableInventory(askUser);
 	}
 
 
@@ -75,7 +73,7 @@ startApp();
 	}
 
 
-	function tableInventory(){
+	function tableInventory(callback){
 	var table = new Table();
 		connection.query('SELECT * FROM Products', function(err, results){
 		 	if (err){
@@ -89,12 +87,16 @@ startApp();
 		  			results.StockQuantity, results.ProductName, 
 		  			results.DepartmentName, results.currentBid],
 		  			['']
+
 		  	);
+
 		  		})
-	 		
+	 			
 					console.log("" + table);
 	 		}
+	 		callback();
 	 	})
+
 	}
 
 
